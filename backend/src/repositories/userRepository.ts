@@ -8,8 +8,8 @@ export class UserRepository implements IUserRepository {
     return await newUser.save();
   }
 
-  async find(): Promise<User[]> {
-    return await UserModel.find().exec();
+  async find(query?: Query): Promise<User[]> {
+    return await UserModel.find(query || {} ).exec();
   }
 
   async findOne(query: Query): Promise<User | null> {

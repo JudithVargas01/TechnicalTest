@@ -82,3 +82,23 @@ export const deleteUser = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const updateUserRole = async (req: Request, res: Response) => {
+  const { userId, role } = req.body;
+
+
+  if (role !== "admin" && role !== "user") {
+    res.status(400).json({ message: "Invalid role" });
+    return 
+  }
+
+  const user = await userService.findUsersById(userId);
+  if (!user) {
+    res.status(404).json({ message: "User not found" });
+    return 
+  }
+
+  user.role = role;
+  await user.save();
+  res.json({ message: "User role updated successfully" });
+};

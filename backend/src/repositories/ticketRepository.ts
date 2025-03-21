@@ -1,5 +1,6 @@
 import { TicketModel } from "@models/Ticket";
 import { ITicketRepository, Ticket } from "types/TicketsTypes";
+import { Query } from "types/RepositoryTypes";
 
 export class TicketRepository implements ITicketRepository {
   async create(data: Ticket): Promise<Ticket> {
@@ -7,8 +8,8 @@ export class TicketRepository implements ITicketRepository {
     return await newTicket.save();
   }
 
-  async find(): Promise<Ticket[]> {
-    return await TicketModel.find().exec();
+  async find(query?: Query): Promise<Ticket[]> {
+    return await TicketModel.find(query || {}).exec();
   }
 
   async findById(id: string): Promise<Ticket | null> {

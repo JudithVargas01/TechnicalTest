@@ -1,4 +1,5 @@
 import { IUserRepository, IUserService, User } from "types/UsersTypes";
+import { Query } from "types/RepositoryTypes";
 
 export class UserService implements IUserService {
   private userRepository: IUserRepository;
@@ -11,8 +12,8 @@ export class UserService implements IUserService {
     return this.userRepository.create(user);
   }
 
-  async findUsers(): Promise<User[]> {
-    return this.userRepository.find();
+  async findUsers(query?: Query): Promise<User[]> {
+    return this.userRepository.find(query);
   }
 
   async findUsersById(id: string): Promise<User | null> {

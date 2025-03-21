@@ -22,7 +22,8 @@ const UserSchema: Schema = new Schema<User>(
         type: String,
         enum: ["user", "admin"], 
         required: true,
-        lowercase: true
+        lowercase: true,
+        default: "user"
     }
   },
   {
