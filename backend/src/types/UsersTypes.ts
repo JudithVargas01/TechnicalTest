@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 import { Query, Repository } from "./RepositoryTypes";
 
+
 export interface User extends Document {
   id: string;
   name: string;

@@ -21,7 +21,8 @@ const UserSchema: Schema = new Schema<User>(
     role: {
         type: String,
         enum: ["user", "admin"], 
-        required: true
+        required: true,
+        lowercase: true
     }
   },
   {

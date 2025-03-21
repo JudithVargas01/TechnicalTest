@@ -1,4 +1,4 @@
-import { UserRepository } from "@repositories/userRepositories";
+import { UserRepository } from "@repositories/userRepository";
 import { UserService } from "@services/userService";
 import { Request, Response } from "express";
 import { IUserRepository, IUserService, User } from "types/UsersTypes";
