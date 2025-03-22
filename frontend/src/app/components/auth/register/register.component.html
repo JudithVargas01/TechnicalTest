@@ -1,0 +1,35 @@
+
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <h3 class="mb-5">Sign up</h3>
+              <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Name LastName" formControlName="name">
+                    <label for="floatingInput">Full Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" formControlName="email">
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <a class="d-block text-center mt-2 small" href="/login">Have an account? Sign In</a>
+                <br>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-login text-uppercase fw-bold" input type="submit">Sign
+                    up</button>
+                </div>    
+            </form>   
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

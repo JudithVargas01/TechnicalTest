@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors({
     origin: "http://localhost:4200", // Permitir solo el frontend
-    credentials: true // Si usas cookies o autenticación
+    credentials: true 
   }));
 app.use("/api", routes());
 

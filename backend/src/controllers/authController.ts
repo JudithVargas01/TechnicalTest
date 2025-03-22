@@ -50,7 +50,11 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign({ id: user.id, name: user.name, email: user.email, role: user.role }, jwtSecret, { expiresIn: "1h" });
     console.log(token);
-    res.json(token);
+    res.json({
+      success: 'Login',
+      token: token,
+      userRole: user.role
+  });
   } catch (error) {
     console.log("error :>> ", error);
     res.status(500).json(error);
