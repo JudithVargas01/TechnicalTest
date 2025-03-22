@@ -14,7 +14,7 @@ export class LoginComponent {
 
   authService = inject(AuthService);
   router = inject(Router);
-
+  errorMessage: string = '';
   constructor() {
     this.formulario = new FormGroup({
       email: new FormControl(),
@@ -24,22 +24,18 @@ export class LoginComponent {
 
   async onSubmit() {
     const response = await this.authService.login(this.formulario.value);
-    console.log("tokennn:",response.token);
-    console.log("roleee:",response.userRole);
-
-
-    if (!response.error) {
+    
+    if (response.error !=  true) {
       localStorage.setItem('token', response.token);
       localStorage.setItem('user_role', response.userRole);
-      if (response.user.role === 'admin') {
+      if (response.userRole === 'admin') {
         this.router.navigate(['/admin/dashboard']);
       } else {
-        this.router.navigate(['/user/tickets']);
+        this.router.navigate(['/users']);
       }
     }else{
-      console.log("errororrrr:",response);
-
+      console.log("gfgfgdfggff");
+      this.errorMessage = response.message || 'Invalid email or password';
     }
   }
-
 }

@@ -8,13 +8,19 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsersListComponent } from './components/users/users-list/users-list.component';
+import { UsersCreateComponent } from './components/users/users-create/users-create.component';
+import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsersListComponent,
+    UsersCreateComponent,
+    UsersEditComponent
   ],
   imports: [
     BrowserModule,

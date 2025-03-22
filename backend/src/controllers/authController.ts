@@ -38,13 +38,13 @@ export const login = async (req: Request, res: Response) => {
 
     const user = await userService.findUsersByEmail(email);
     if (!user) {
-      res.status(400).json({ message: "Invalid user or password" });
+      res.json({ error: true, message: 'Invalid email or password' });
       return;
     }
 
     const comparePass = await user.comparePassword(password);
     if (!comparePass) {
-      res.status(400).json({ message: "Invalid user or password" });
+      res.json({ error: true, message: 'Invalid email or password' });
       return;
     }
 
