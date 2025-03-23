@@ -47,7 +47,7 @@ export const createUser = async (req: Request, res: Response) => {
     res.status(201).json(result);
   } catch (error) {
     console.error("Error in createUser:", error);
-    res.status(400).json({ error: "Bad Request" });
+    res.json({ error: true });
   }
 };
 
@@ -56,14 +56,14 @@ export const updateUser = async (req: Request, res: Response) => {
   try {
     const updatedUser = await userService.updateUser(req.params.id, req.body);
     if (!updatedUser) {
-      res.status(404).json({ message: "User not found" });
+      res.json({ message: "User not found" });
       return;
     }
 
     res.json(updatedUser);
   } catch (error) {
     console.error("Error in updateUser:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.json({ error: true,  message: "true" });
   }
 };
 

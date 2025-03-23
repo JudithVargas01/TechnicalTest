@@ -1,1 +1,62 @@
-<p>users-edit works!</p>
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #508bfc;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-4">Edit User</h3>
+                        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingName" placeholder="Name LastName" formControlName="name">
+                                <label for="floatingName">Full Name</label>
+                                <div *ngIf="formulario.controls['name'].invalid && formulario.controls['name'].touched" class="text-danger">
+                                    Name is required.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" formControlName="email">
+                                <label for="floatingEmail">Email</label>
+                                <div *ngIf="formulario.controls['email'].invalid && formulario.controls['email'].touched" class="text-danger">
+                                    <div *ngIf="formulario.controls['email'].hasError('required')">Email is required.</div>
+                                    <div *ngIf="formulario.controls['email'].hasError('email')">Invalid email format.</div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                                <label for="floatingPassword">Password</label>
+                                <div *ngIf="formulario.controls['password'].invalid && formulario.controls['password'].touched" class="text-danger">
+                                    <div *ngIf="formulario.controls['password'].hasError('required')">Password is required.</div>
+                                    <div *ngIf="formulario.controls['password'].hasError('minlength')">Password must be at least 8 characters long.</div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-control" id="floatingRole" formControlName="role">
+                                  <option value="admin">Admin</option>
+                                  <option value="user">User</option>
+                                </select>
+                                <label for="floatingRole">Role</label>
+                                <div *ngIf="formulario.controls['role'].invalid && formulario.controls['role'].touched" class="text-danger">
+                                    Role is required.
+                                </div>
+                            </div>
+                            <div *ngIf="editMessage" class="alert alert-success">
+                                {{ editMessage }}
+                            </div>
+                            <div *ngIf="errorMessage" class="alert alert-danger">
+                                {{ errorMessage }}
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <div style="width: 35%;">
+                                    <button type="button" class="btn btn-secondary text-uppercase fw-bold w-100" (click)="goBack()">Back</button>
+                                </div>
+                                <div style="width: 55%;">
+                                    <button class="btn btn-primary text-uppercase fw-bold w-100" type="submit" [disabled]="formulario.invalid">Save Changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

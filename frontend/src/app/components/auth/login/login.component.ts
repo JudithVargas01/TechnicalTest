@@ -1,4 +1,4 @@
-import { Component, inject, runInInjectionContext } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +11,6 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent {
 
   formulario: FormGroup;
-
   authService = inject(AuthService);
   router = inject(Router);
   errorMessage: string = '';
@@ -26,12 +25,13 @@ export class LoginComponent {
     const response = await this.authService.login(this.formulario.value);
     
     if (response.error !=  true) {
+      console.log("tokeeen:",  response.token);
       localStorage.setItem('token', response.token);
       localStorage.setItem('user_role', response.userRole);
       if (response.userRole === 'admin') {
-        this.router.navigate(['/admin/dashboard']);
-      } else {
         this.router.navigate(['/users']);
+      } else {
+        this.router.navigate(['/login']);
       }
     }else{
       console.log("gfgfgdfggff");

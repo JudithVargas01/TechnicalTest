@@ -6,6 +6,9 @@ import { firstValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
+  getUserById(id: string) {
+    throw new Error('Method not implemented.');
+  }
 
   httpClient = inject(HttpClient);
   baseUrl = 'http://localhost:3000/api/users';
@@ -23,8 +26,16 @@ export class UsersService {
   }
 
   create(formValues: any) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
     return firstValueFrom(
-      this.httpClient.post<any>(this.baseUrl, formValues)
+      this.httpClient.post<any>(this.baseUrl, formValues, { headers })
     );
   }
 
