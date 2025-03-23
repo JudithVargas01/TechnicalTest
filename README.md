@@ -13,16 +13,13 @@ And then run it with the command:
    `npm run dev`
 
 3. In the frontend folder, open a terminal and install the required dependencies by running:
-   ```bash
-   npm install
+   `npm install`
 
 Install angular 16:
-   ```bash
-  npm install -g @angular/cli@16
+  `npm install -g @angular/cli@16`
 
 And then run it with the command:
-   ```bash
-   ng serve
+   `ng serve`
 
 4. When the backend and frontend are running, in the browser search for http://localhost:4200/login, to log in there are 2 users:
    email: mariav@test.com, password: 12345678, role: admin
