@@ -16,9 +16,11 @@ And then run it with the command:
 3. In the frontend folder, open a terminal and install the required dependencies by running:
    ```bash
    npm install
+
 Install angular 16:
    ```bash
   npm install -g @angular/cli@16
+
 And then run it with the command:
    ```bash
    ng serve
