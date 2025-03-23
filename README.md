@@ -9,6 +9,7 @@
 2. Clone the repository, and open it with an integrated development environment, such as Visual Studio Code, and in the backend folder, open a terminal and install the required dependencies by running:
    ```bash
    npm install
+   
 And then run it with the command:
    ```bash
    npm run dev
