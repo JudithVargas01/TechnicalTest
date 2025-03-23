@@ -24,9 +24,9 @@ export default () => {
   router.put("/users/:id", verifyToken, authRole(["admin"]), updateUserRole);
 
     // Tickets Routes
-    router.get("/tickets", verifyToken, authRole(["admin"]), findTickets);
+    router.get("/tickets", verifyToken, findTickets);
     router.get("/tickets/:id", verifyToken, authRole(["admin"]), findTicketsById);
-    router.post("/tickets", verifyToken, createTicket);
+    router.post("/tickets", verifyToken,  authRole(["admin"]), createTicket);
     router.put("/tickets/:id",verifyToken, updateTicket);
     router.delete("/tickets/:id", verifyToken, authRole(["admin"]), deleteTicket);
 

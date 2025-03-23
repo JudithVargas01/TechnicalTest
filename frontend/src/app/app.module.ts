@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { UsersCreateComponent } from './components/users/users-create/users-create.component';
 import { UsersEditComponent } from './components/users/users-edit/users-edit.component';
+import { TicketsListComponent } from './components/tickets/tickets-list/tickets-list.component';
+import { TicketsCreateComponent } from './components/tickets/tickets-create/tickets-create.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { UsersEditComponent } from './components/users/users-edit/users-edit.com
     RegisterComponent,
     UsersListComponent,
     UsersCreateComponent,
-    UsersEditComponent
+    UsersEditComponent,
+    TicketsListComponent,
+    TicketsCreateComponent
   ],
   imports: [
     BrowserModule,

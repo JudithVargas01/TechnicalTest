@@ -5,13 +5,13 @@ import { firstValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class TicketsService {
   getUserById(id: string) {
     throw new Error('Method not implemented.');
   }
 
   httpClient = inject(HttpClient);
-  baseUrl = 'http://localhost:3000/api/users';
+  baseUrl = 'http://localhost:3000/api/tickets';
 
   getAll() {
     return firstValueFrom(
@@ -19,16 +19,15 @@ export class UsersService {
     );
   }
 
-  getById(userId: string) {
+  getById(ticketId: string) {
     return firstValueFrom(
-      this.httpClient.get<any>(`${this.baseUrl}/${userId}`)
+      this.httpClient.get<any>(`${this.baseUrl}/${ticketId}`)
     );
   }
 
   create(formValues: any) {
     const token = localStorage.getItem('token');
-    console.log("TOKEEEEN users:", token)
-
+    console.log("TOKEEEEN:", token)
     if (!token) {
       console.error('Token not found');
       return;
@@ -41,15 +40,15 @@ export class UsersService {
     );
   }
 
-  update(userId: string, formValues: any) {
+  update(ticketId: string, formValues: any) {
     return firstValueFrom(
-      this.httpClient.put(`${this.baseUrl}/${userId}`, formValues)
+      this.httpClient.put(`${this.baseUrl}/${ticketId}`, formValues)
     );
   }
 
-  deleteById(userId: string) {
+  deleteById(ticketId: string) {
     return firstValueFrom(
-      this.httpClient.delete<any>(`${this.baseUrl}/${userId}`)
+      this.httpClient.delete<any>(`${this.baseUrl}/${ticketId}`)
     );
   }
 }

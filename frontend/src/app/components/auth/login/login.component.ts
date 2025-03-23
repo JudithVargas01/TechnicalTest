@@ -31,7 +31,7 @@ export class LoginComponent {
       if (response.userRole === 'admin') {
         this.router.navigate(['/users']);
       } else {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/tickets']);
       }
     }else{
       console.log("gfgfgdfggff");

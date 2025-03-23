@@ -1,0 +1,58 @@
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #508bfc;">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-4">Create New Ticket</h3>
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingTitle" placeholder="Title" formControlName="title">
+                                <label for="floatingTitle">Title</label>
+                                <div *ngIf="form.controls['title'].invalid && form.controls['title'].touched" class="text-danger">
+                                    Title is required.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="floatingDescription" placeholder="Description" formControlName="description"></textarea>
+                                <label for="floatingDescription">Description</label>
+                                <div *ngIf="form.controls['description'].invalid && form.controls['description'].touched" class="text-danger">
+                                    Description is required.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-control" id="floatingStatus" formControlName="status">
+                                  <option value="open">Open</option>
+                                  <option value="in progress">In Progress</option>
+                                  <option value="resolved">Resolved</option>
+                                </select>
+                                <label for="floatingStatus">Status</label>
+                                <div *ngIf="form.controls['status'].invalid && form.controls['status'].touched" class="text-danger">
+                                    Status is required.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingAssignedUser" placeholder="Assigned User" formControlName="assignedUser">
+                                <label for="floatingAssignedUser">Assigned User (Optional)</label>
+                            </div>
+                            <div *ngIf="createMessage" class="alert alert-success">
+                                {{ createMessage }}
+                            </div>
+                            <div *ngIf="errorMessage" class="alert alert-danger">
+                                {{ errorMessage }}
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <div style="width: 35%;">
+                                    <button type="button" class="btn btn-secondary text-uppercase fw-bold w-100" (click)="goBack()">Back</button>
+                                </div>
+                                <div style="width: 55%;">
+                                    <button class="btn btn-primary text-uppercase fw-bold w-100" type="submit" [disabled]="form.invalid">Create</button>
+                                </div>
+                            </div>
+                        </form>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

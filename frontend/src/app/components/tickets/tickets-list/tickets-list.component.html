@@ -1,0 +1,43 @@
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <button  class="btn btn-info" *ngIf="userRole === 'admin'"  [routerLink]="['/users']">Go to users</button>
+                            <h3 class="mb-0 text-center flex-grow-1">Tickets Management</h3>
+                            <button class="btn btn-success" [routerLink]="['/tickets/create']">Create ticket</button>
+                        </div>
+                    
+                        <div class="text-center mt-3">
+                        </div>
+                        <br>
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="col" *ngFor="let ticket of arrTickets()">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ ticket.title }}</h5>
+                                        <p class="card-text">{{ ticket.description }}</p>
+                                        <p><strong>Status:</strong> <span class="badge" [ngClass]="{
+                                            'bg-primary': ticket.status === 'open',
+                                            'bg-warning': ticket.status === 'in progress',
+                                            'bg-success': ticket.status === 'resolved'
+                                        }">{{ ticket.status }}</span></p>
+                                        <p><strong>Assigned To:</strong> {{ ticket.assignedUser?.name || 'Unassigned' }}</p>
+                                        <p><small class="text-muted">Created: {{ ticket.createdAt | date:'short' }}</small></p>
+                                        <p><small class="text-muted">Updated: {{ ticket.updatedAt | date:'short' }}</small></p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between">
+                                        <button class="btn btn-primary" [routerLink]="['/tickets/edit', ticket._id]">Edit</button>
+                                        <button class="btn btn-danger btn-sm" *ngIf="userRole === 'admin'"  (click)="onClickDelete(ticket._id)">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

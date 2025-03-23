@@ -47,7 +47,8 @@ export const createTicket = async (req: Request, res: Response) => {
     res.status(201).json(result);
   } catch (error) {
     console.error("Error in createTicket:", error);
-    res.status(400).json({ error: "Bad Request" });
+    res.json({ error: true });
+
   }
 };
 

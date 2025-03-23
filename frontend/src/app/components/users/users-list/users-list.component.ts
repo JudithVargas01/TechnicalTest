@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 export class UsersListComponent {
   constructor(private router: Router) {}
   arrUsers = signal<any[]>([]);
+  userRole: string | null = null;
 
   usersService = inject(UsersService);
 
   async ngOnInit() {
     const users = await this.usersService.getAll();
     this.arrUsers.set(users);
+    this.userRole = localStorage.getItem('user_role');
+
   }
 
   async onClickDelete(userId: string) {

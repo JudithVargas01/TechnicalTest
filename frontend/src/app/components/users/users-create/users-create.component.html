@@ -5,28 +5,28 @@
                 <div class="card shadow-2-strong" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
                         <h3 class="mb-4">Create New User</h3>
-                        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingName" placeholder="Name LastName" formControlName="name">
                                 <label for="floatingName">Full Name</label>
-                                <div *ngIf="formulario.controls['name'].invalid && formulario.controls['name'].touched" class="text-danger">
+                                <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="text-danger">
                                     Name is required.
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" formControlName="email">
                                 <label for="floatingEmail">Email</label>
-                                <div *ngIf="formulario.controls['email'].invalid && formulario.controls['email'].touched" class="text-danger">
-                                    <div *ngIf="formulario.controls['email'].hasError('required')">Email is required.</div>
-                                    <div *ngIf="formulario.controls['email'].hasError('email')">Invalid email format.</div>
+                                <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="text-danger">
+                                    <div *ngIf="form.controls['email'].hasError('required')">Email is required.</div>
+                                    <div *ngIf="form.controls['email'].hasError('email')">Invalid email format.</div>
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
                                 <label for="floatingPassword">Password</label>
-                                <div *ngIf="formulario.controls['password'].invalid && formulario.controls['password'].touched" class="text-danger">
-                                    <div *ngIf="formulario.controls['password'].hasError('required')">Password is required.</div>
-                                    <div *ngIf="formulario.controls['password'].hasError('minlength')">Password must be at least 6 characters long.</div>
+                                <div *ngIf="form.controls['password'].invalid && form.controls['password'].touched" class="text-danger">
+                                    <div *ngIf="form.controls['password'].hasError('required')">Password is required.</div>
+                                    <div *ngIf="form.controls['password'].hasError('minlength')">Password must be at least 8 characters long.</div>
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
@@ -35,7 +35,7 @@
                                   <option value="user">User</option>
                                 </select>
                                 <label for="floatingRole">Role</label>
-                                <div *ngIf="formulario.controls['role'].invalid && formulario.controls['role'].touched" class="text-danger">
+                                <div *ngIf="form.controls['role'].invalid && form.controls['role'].touched" class="text-danger">
                                     Role is required.
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                     <button type="button" class="btn btn-secondary text-uppercase fw-bold w-100" (click)="goBack()">Back</button>
                                 </div>
                                 <div style="width: 55%;">
-                                    <button class="btn btn-primary text-uppercase fw-bold w-100" type="submit" [disabled]="formulario.invalid">Create</button>
+                                    <button class="btn btn-primary text-uppercase fw-bold w-100" type="submit" [disabled]="form.invalid">Create</button>
                                 </div>
                             </div>
                         </form>   

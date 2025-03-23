@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./users-create.component.css']
 })
 export class UsersCreateComponent {
-  formulario: FormGroup;
+  form: FormGroup;
   router = inject(Router);
   createMessage: string = '';
   errorMessage: string = '';
   usersService = inject(UsersService);
 
   constructor(private fb: FormBuilder) {
-    this.formulario = this.fb.group({
+    this.form = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -25,8 +25,8 @@ export class UsersCreateComponent {
   }
 
   async onSubmit() {
-    if (this.formulario.valid) {
-      const response = await this.usersService.create(this.formulario.value);
+    if (this.form.valid) {
+      const response = await this.usersService.create(this.form.value);
       console.log(response);
   
       if (response.error !=  true) {
