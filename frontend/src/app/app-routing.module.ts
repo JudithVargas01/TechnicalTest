@@ -10,11 +10,12 @@ import { TicketsListComponent } from './components/tickets/tickets-list/tickets-
 import { TicketsEditComponent } from './components/tickets/tickets-edit/tickets-edit.component';
 
 import { authGuard } from './guards/auth.guard';
+import { adminGuard } from './guards/admin.guard'; 
 
 const routes: Routes = [
-  { path: 'users', component: UsersListComponent, canActivate: [authGuard] },
-  { path: 'users/edit/:userId', component: UsersEditComponent, canActivate: [authGuard] },
-  { path: 'users/create', component: UsersCreateComponent, canActivate: [authGuard] },
+  { path: 'users', component: UsersListComponent, canActivate: [authGuard, adminGuard] },
+  { path: 'users/edit/:userId', component: UsersEditComponent, canActivate: [authGuard, adminGuard] },
+  { path: 'users/create', component: UsersCreateComponent, canActivate: [authGuard, adminGuard] },
 
   { path: 'tickets', component: TicketsListComponent, canActivate: [authGuard] },
   { path: 'tickets/edit/:userId', component: TicketsEditComponent, canActivate: [authGuard] },
