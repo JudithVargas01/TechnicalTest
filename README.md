@@ -7,12 +7,10 @@
    ![image](https://github.com/user-attachments/assets/0ec6005c-74b1-4e29-80b1-b2829b0c3da0)
 
 2. Clone the repository, and open it with an integrated development environment, such as Visual Studio Code, and in the backend folder, open a terminal and install the required dependencies by running:
-   ```bash
-   npm install
+   `npm install`
    
 And then run it with the command:
-   ```bash
-   npm run dev
+   `npm run dev`
 
 3. In the frontend folder, open a terminal and install the required dependencies by running:
    ```bash
