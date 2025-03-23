@@ -16,6 +16,8 @@
    `ng serve`
 
 5. When the backend and frontend are running, in the browser search for http://localhost:4200/login, to log in there are 2 users:
+   
    email: mariav@test.com, password: 12345678, role: admin
+
    email: juanfallas@test.com, password: 12345678, role: user
 
