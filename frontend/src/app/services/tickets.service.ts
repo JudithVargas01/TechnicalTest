@@ -27,7 +27,7 @@ export class TicketsService {
 
   create(formValues: any) {
     const token = localStorage.getItem('token');
-    console.log("TOKEEEEN:", token)
+    console.log("TOKEEEEN tickets:", token)
     if (!token) {
       console.error('Token not found');
       return;
